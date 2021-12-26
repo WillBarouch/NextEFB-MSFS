@@ -3,58 +3,29 @@ body {
 
 }
 
-.chartfox {
-    position: absolute;
-    margin-top: 150px;
-    margin-left: 20%;
-    border-radius: 130px;
-    size: 500px;
+.container {
+    display: grid;
+    grid-column-gap: 15vw;
+    grid-row-gap: 15vh;
+    grid-template-columns: auto auto auto;
+    margin-top: 10vh;
+    justify-content: center;
 }
 
-.navigraph {
-    position: absolute;
-    margin-top: 150px;
-    margin-left: calc(50% - 250px);
-    border-radius: 130px;
-    height: 640px;
+.icon {
+
+    border-radius: 50px;
+    width: 250px;
+
 }
 
-.map {
-    position: absolute;
-    margin-top: 150px;
-    margin-left: 70%;
-    border-radius: 130px;
-    height: 640px;
-}
-
-.landing {
-    position: absolute;
-    margin-top: 1300px;
-    margin-left: 20%;
-    border-radius: 130px;
-    height: 640px;
-}
-.Settings {
-    position: absolute;
-    margin-top: 1300px;
-    margin-left: calc(50% - 250px);
-    border-radius: 130px;
-    height: 640px;
-}
-.Annotate {
-    position: absolute;
-    margin-top: 1300px;
-    margin-left: 70%;
-    border-radius: 130px;
-    height: 640px;
-}
 
 iframe {
-    width: 80%;
     margin-left: 10%;
     height: 90vh;
-    border-radius: 100px;
-    margin-top: 5vh;
+    border-radius: 50px;
+    width: 80%;
+    justify-self: center;
 }
 
 .home_button {
@@ -63,13 +34,13 @@ iframe {
     margin-top: 2.5vh;
     border-radius: 20px;
     border-color: #ffffff;
-    height:15px;
+    height:10px;
 }
 
 #map {
     width: 80%;
     margin-left: 10%;
     height: 90vh;
-    border-radius: 100px;
+    border-radius:5%;
     margin-top: 5vh;
 }
