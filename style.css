@@ -1,9 +1,16 @@
 body {
     background-color:#262B4B;
-
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
 }
 
-.container {
+form {
+    color: white;
+}
+
+.container2 {
     display: grid;
     grid-column-gap: 15vw;
     grid-row-gap: 15vh;
@@ -43,4 +50,39 @@ iframe {
     height: 90vh;
     border-radius:5%;
     margin-top: 5vh;
+}
+
+
+
+h1 {
+    background: #7F7FD5;
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body {
+    font-family: Ubuntu;
+}
+
+#TotalNotes {
+    color: white;
+    position: relative;
+    top: 10px;
+
+}
+
+#OnlineNotes:hover {
+    color: #ecebeb;
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    height: 50vh;
+    box-sizing: border-box;
+    border-radius: 30px;
 }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NextEFB</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        (function() {
+
+            // Grab the textarea
+            var demo = document.querySelector('.localstorage');
+
+            // localStorage feature detect
+            function supportsLocalStorage() {
+                return typeof(Storage)!== 'undefined';
+            }
+
+            // Run the detection with inverted expression
+            if (!supportsLocalStorage()) {
+
+                // Change the value to inform the user of no support
+                demo.value = 'No HTML5 localStorage support, soz.';
+
+            } else {
+
+                // Try this
+                try {
+
+                    // Set the interval and autosave every second
+                    setInterval(function() {
+                        localStorage.setItem('autosave', demo.value);
+                    }, 1000);
+
+                } catch (e) {
+
+                    // If any errors, catch and alert the user
+                    if (e == QUOTA_EXCEEDED_ERR) {
+                        alert('Quota exceeded!');
+                    }
+                }
+
+                // If there is data available
+                if (localStorage.getItem('autosave')) {
+
+                    // Retrieve the item
+                    demo.value = localStorage.getItem('autosave');
+                }
+
+
+            }
+
+        })();
+    </script>
+</head>
+<body>
+<div id="map">
+    <textarea rows="250" class="localstorage"></textarea>
+</div>
+
+<a href="index.html" target="blank">
+    <button class="home_button" type="button" ></button>
+</a>
+</body>
+</html>
