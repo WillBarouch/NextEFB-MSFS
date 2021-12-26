@@ -82,7 +82,8 @@ body {
 textarea {
     width: 100%;
     padding: 12px 20px;
-    height: 50vh;
+    height: 90vh;
     box-sizing: border-box;
     border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
 }

@@ -4,63 +4,47 @@
     <meta charset="UTF-8">
     <title>NextEFB</title>
     <link rel="stylesheet" href="style.css">
-
-    <script>
-
-        (function() {
-
-            // Grab the textarea
-            var demo = document.querySelector('.localstorage');
-
-            // localStorage feature detect
-            function supportsLocalStorage() {
-                return typeof(Storage)!== 'undefined';
-            }
-
-            // Run the detection with inverted expression
-            if (!supportsLocalStorage()) {
-
-                // Change the value to inform the user of no support
-                demo.value = 'No HTML5 localStorage support, soz.';
-
-            } else {
-
-                // Try this
-                try {
-
-                    // Set the interval and autosave every second
-                    setInterval(function() {
-                        localStorage.setItem('autosave', demo.value);
-                    }, 1000);
-
-                } catch (e) {
-
-                    // If any errors, catch and alert the user
-                    if (e == QUOTA_EXCEEDED_ERR) {
-                        alert('Quota exceeded!');
-                    }
-                }
-
-                // If there is data available
-                if (localStorage.getItem('autosave')) {
-
-                    // Retrieve the item
-                    demo.value = localStorage.getItem('autosave');
-                }
-
-
-            }
-
-        })();
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 <div id="map">
-    <textarea rows="250" class="localstorage"></textarea>
+    <textarea  id="txt"></textarea>
+    <div id="err"></div>
 </div>
 
-<a href="index.html" target="blank">
+<a href="index.html" target="_self">
     <button class="home_button" type="button" ></button>
 </a>
+
+<script>
+    var textarea = document.getElementById("txt");
+    textarea.addEventListener('input', writeLocalStorage);
+
+    function writeLocalStorage() {
+        if (typeof(Storage) !== "undefined") {
+            localStorage.setItem("text", textarea.value);
+        } else {
+            document.getElementById("err").innerHTML = "Localstorage not supported";
+        }
+    }
+
+    function readLocalStorage() {
+        if (typeof(Storage) !== "undefined") {
+            textarea.value = localStorage.getItem("text");
+        } else {
+            document.getElementById("err").innerHTML = "Localstorage not supported";
+        }
+    }
+
+    // `DOMContentLoaded` may fire before your script has a chance to run, so check before adding a listener
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", readLocalStorage);
+    } else {  // `DOMContentLoaded` already fired
+        readLocalStorage();
+    }
+</script>
+
 </body>
 </html>
