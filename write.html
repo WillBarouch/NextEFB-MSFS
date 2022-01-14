@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>NextEFB</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,32 +26,7 @@
     <button class="home_button" type="button" ></button>
 </a>
 
-<script>
-    var textarea = document.getElementById("txt");
-    textarea.addEventListener('input', writeLocalStorage);
-
-    function writeLocalStorage() {
-        if (typeof(Storage) !== "undefined") {
-            localStorage.setItem("text", textarea.value);
-        } else {
-            document.getElementById("err").innerHTML = "Localstorage not supported";
-        }
-    }
-
-    function readLocalStorage() {
-        if (typeof(Storage) !== "undefined") {
-            textarea.value = localStorage.getItem("text");
-        } else {
-            document.getElementById("err").innerHTML = "Localstorage not supported";
-        }
-    }
-
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", readLocalStorage);
-    } else {
-        readLocalStorage();
-    }
-</script>
+<script src="writescript.js"></script>
 
 </body>
 </html>
