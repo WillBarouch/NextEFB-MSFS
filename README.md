@@ -1,0 +1,1 @@
+NextEFB is an open-source project that combines multiple essential flight simulation utilities into one convenient webapp
